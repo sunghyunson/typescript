@@ -29,9 +29,9 @@ var x: string | number = 1;
 x = "2"
 
 //intersection
-interface Cat { leg: number }
+interface CatH { leg: number }
 interface Bird { wing: number }
-let catbird: Cat & Bird = { leg: 4, wing: 2 }
+let catbird: CatH & Bird = { leg: 4, wing: 2 }
 
 // void type
 function test(): void {

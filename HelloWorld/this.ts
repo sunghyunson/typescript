@@ -67,50 +67,50 @@ console.log("card: " + pickedCard2.card + " of " + pickedCard2.suit);
 
 
 
-interface UIElement {
-	addClickListener(onclick: (this: void, e: Event) => void): void;
-}
-class Handler {
-	info: string
-	onClickBad(this: Handler, e: Event) {
-		// 이런, 여기서 this를 사용했어요. 이 콜백을 사용하면 충돌으로 런타임 오류가 발생합니다.
-		this.info = "good";
-	}
-	onClickGood(this: void, e: Event) {
-		// this의 타입이 void이기 때문에 여기서는 사용할 수 없습니다!
-		console.log('clicked~')
-	}
-	onclick = (e: Event) => { this.info = "hi" }
-}
-let h = new Handler()
-let uiElement: UIElement
+// interface UIElement {
+// 	addClickListener(onclick: (this: void, e: Event) => void): void;
+// }
+// class Handler {
+// 	info: string
+// 	onClickBad(this: Handler, e: Event) {
+// 		// 이런, 여기서 this를 사용했어요. 이 콜백을 사용하면 충돌으로 런타임 오류가 발생합니다.
+// 		this.info = "good";
+// 	}
+// 	onClickGood(this: void, e: Event) {
+// 		// this의 타입이 void이기 때문에 여기서는 사용할 수 없습니다!
+// 		console.log('clicked~')
+// 	}
+// 	onclick = (e: Event) => { this.info = "hi" }
+// }
+// let h = new Handler()
+// let uiElement: UIElement
 // uiElement.addClickListener(h.onclick);
 // uiElement.addClickListener(h.onClickBad);
 
 
 
-let suits3 = ["hearts", "spades", "diamonds", "clubs"]
-function pickCard(x: { suit: string, card: number }[]): number
-function pickCard(x: number): { suit: string, card: number }
-function pickCard(x: string): void
-function pickCard(x): any {
-	if (typeof x == "object") {
-		let pickedCard = Math.floor(Math.random() * x.length)
-		return pickedCard
-	}
-	else if (typeof x == "number") {
-		let pickedSuit = Math.floor(x / 13)
-		return { suit: suits3[pickedSuit], card: x % 13 }
-	}
-}
-let myDeck = [{ suit: "diamonds", card: 2 }, { suit: "spades", card: 10 }, { suit: "hearts", card: 4 }]
-let pickedCard5 = myDeck[pickCard(myDeck)]
-console.log("card: " + pickedCard5.card + " suit: " + pickedCard5.suit);
-let pickedCard6 = pickCard(33)
-console.log("card: " + pickedCard6.card + " suit: " + pickedCard6.suit);
-let pickedCard7 = pickCard("good")
-// console.log("card: " + pickedCard7.card + " suit: " + pickedCard7.suit);
-console.log(pickedCard7);
+// let suits3 = ["hearts", "spades", "diamonds", "clubs"]
+// function pickCard(x: { suit: string, card: number }[]): number
+// function pickCard(x: number): { suit: string, card: number }
+// function pickCard(x: string): void
+// function pickCard(x): any {
+// 	if (typeof x == "object") {
+// 		let pickedCard = Math.floor(Math.random() * x.length)
+// 		return pickedCard
+// 	}
+// 	else if (typeof x == "number") {
+// 		let pickedSuit = Math.floor(x / 13)
+// 		return { suit: suits3[pickedSuit], card: x % 13 }
+// 	}
+// }
+// let myDeck = [{ suit: "diamonds", card: 2 }, { suit: "spades", card: 10 }, { suit: "hearts", card: 4 }]
+// let pickedCard5 = myDeck[pickCard(myDeck)]
+// console.log("card: " + pickedCard5.card + " suit: " + pickedCard5.suit);
+// let pickedCard6 = pickCard(33)
+// console.log("card: " + pickedCard6.card + " suit: " + pickedCard6.suit);
+// let pickedCard7 = pickCard("good")
+// // console.log("card: " + pickedCard7.card + " suit: " + pickedCard7.suit);
+// console.log(pickedCard7);
 
 
 
